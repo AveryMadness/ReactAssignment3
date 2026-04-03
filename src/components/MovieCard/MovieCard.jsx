@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { getImageUrl } from '../../services/api';
 import styles from './MovieCard.module.css';
 
 // Reusable component displaying movie poster, title, year, and rating
-const MovieCard = ({ movie }) => {
+const MovieCard = memo(({ movie }) => {
   // Extract year from release date string (format: YYYY-MM-DD)
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : 'N/A';
 
@@ -29,6 +30,6 @@ const MovieCard = ({ movie }) => {
       </div>
     </Link>
   );
-};
+});
 
 export default MovieCard;
